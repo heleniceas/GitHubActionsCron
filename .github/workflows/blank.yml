@@ -1,12 +1,16 @@
-name: "Workflow example"
-on:
+name: Experiment
+on: 
   schedule:
-    - cron: '*/10 * * * *'
+  - cron: '*/5 * * * *'
 
 jobs:
-  hello:
-    name: "Say hello"
+  job1:
+    name: Debug
     runs-on: ubuntu-latest
+
     steps:
-      - name: Display message
-        run: echo "Hello from GitHub Actions!"
+    - name: Git checkout
+      uses: actions/checkout@v2
+      with: { ref: debug }
+    - name: List files
+      run: ls
