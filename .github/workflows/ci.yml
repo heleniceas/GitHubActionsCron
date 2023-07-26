@@ -1,15 +1,13 @@
-# This is a basic workflow to help you get started with Actions
+name: Hourly Hello World
 
-name: CI
 on:
   schedule:
-    - cron: '*/10 * * * *'
-
+    - cron: "0 * * * *"
 
 jobs:
-  hello:
-    name: "Say hello"
+  say_hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Display message
-        run: echo "Hello from GitHub Actions!"
+    - name: Say Hello
+      run: |
+        echo "Hello World! It's $(date)"
